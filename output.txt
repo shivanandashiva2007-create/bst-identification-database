@@ -1,0 +1,41 @@
+PACKAGE WEIGHT SORTING PROJECT
+Format: P<package ID>(weight)
+
+Input:
+P1(20)  P2(15)  P3(20)  P4(10)  P5(15)  P6(20)  P7(25)  P8(10)
+
+--- MERGE SORT (trace) ---
+Merge [1..1] and [2..2] -> P2(15) P1(20)
+Merge [3..3] and [4..4] -> P4(10) P3(20)
+Merge [1..2] and [3..4] -> P4(10) P2(15) P1(20) P3(20)
+Merge [5..5] and [6..6] -> P5(15) P6(20)
+Merge [7..7] and [8..8] -> P8(10) P7(25)
+Merge [5..6] and [7..8] -> P8(10) P5(15) P6(20) P7(25)
+Merge [1..4] and [5..8] -> P4(10) P8(10) P2(15) P5(15) P1(20) P3(20) P6(20) P7(25)
+Merge sort result:
+P4(10)  P8(10)  P2(15)  P5(15)  P1(20)  P3(20)  P6(20)  P7(25)
+
+--- QUICK SORT (trace; last element as pivot) ---
+Pivot 10, placed at position 1 -> P8(10) P2(15) P3(20) P4(10) P5(15) P6(20) P7(25) P1(20)
+Pivot 20, placed at position 5 -> P2(15) P4(10) P5(15) P1(20) P6(20) P7(25) P3(20)
+Pivot 15, placed at position 3 -> P4(10) P5(15) P2(15)
+Pivot 20, placed at position 6 -> P3(20) P7(25) P6(20)
+Pivot 20, placed at position 7 -> P6(20) P7(25)
+Quick sort result:
+P8(10)  P4(10)  P5(15)  P2(15)  P1(20)  P3(20)  P6(20)  P7(25)
+
+--- STABLE MERGE SORT ---
+Stable merge sort result:
+P4(10)  P8(10)  P2(15)  P5(15)  P1(20)  P3(20)  P6(20)  P7(25)
+
+--- STABLE QUICK SORT ---
+Stable pivot 10: < group 0, = group 2, > group 6
+Stable pivot 25: < group 5, = group 1, > group 0
+Stable pivot 20: < group 2, = group 3, > group 0
+Stable pivot 15: < group 0, = group 2, > group 0
+Stable quicksort level 3 -> P2(15) P5(15)
+Stable quicksort level 2 -> P2(15) P5(15) P1(20) P3(20) P6(20)
+Stable quicksort level 1 -> P2(15) P5(15) P1(20) P3(20) P6(20) P7(25)
+Stable quicksort level 0 -> P4(10) P8(10) P2(15) P5(15) P1(20) P3(20) P6(20) P7(25)
+Stable quick sort result:
+P4(10)  P8(10)  P2(15)  P5(15)  P1(20)  P3(20)  P6(20)  P7(25)
